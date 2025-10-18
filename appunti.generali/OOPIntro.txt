@@ -1,0 +1,27 @@
+## OOP Intro
+**Concetti fondamentali:**
+- **Classi e Oggetti**: 
+    -> definizione: la classe = progetto, definisce attributi e metodi; 
+    l'Oggetto = modello specifico, si istanzia con il new :  Auto miaAuto = new Auto ();-> nuovo oggetto miaAuto nella classe Auto.
+    -> istanziamento                                                            L new Auto() è un richiamo al costruttore della classe per creare la nuova istanza
+
+- **Attributi**: variabili di istanza, visibilità (private, public, protected, default)
+public: visibili ovunque;
+private: visibili da nessuna parte se non ci sono i metodi di accesso Getter e setter
+protected: molto simile al defoult, ossia ha visibilità nella classe e nel package purchè chi utilizza quell'attributo sia dentro un package ed estenda la classe che ha quell'attributo
+defoult: visibile solo nella classe e nel package
+
+- **Costruttore**: 
+    -> definizione: è un metodo peciale perchè non ha il tipo di ritorno, anzi ritorna alla classe.
+    Mi permette di inizializzare i valori delle mie variabili a mio piacimento, altrimenti Java darebbe valori di defoult e non mi sarebbe possibile inizializzarle come servono a me, 
+    -> overloading del costruttore: avere più costuttori nella stessa classe ma con parametri diversi, cos' da poter creare oggetti diversi a seconda dei parametri che ho disponibili
+    -> costruttore di default: inizializza i miei parametri con valori di defoult e non posso cambiarli.
+
+- **Metodi**:
+    -> definizione: azioni che una classe o un oggetto può fare.,
+    -> parametri: se richiesti nel metodo, sono obbligatori per il funzionamento del metodo.
+    -> valore di ritorno: è il tipo di dato che mi ritorna un metodo. Se un metodo mi restituisce un tipo non void, deve avere delle istruzioni di return;
+    -> overloading:avere più metodi con lo stesso nome ma parametri diversi. Questo è un tipo di polimorfismo statico perchè il compilatore decide quale metodo chiamare a seconda dei parametri
+    che vengono passati.
+
+- **Keyword this**: riferimento all'oggetto corrente, disambiguazione parametri-attributi

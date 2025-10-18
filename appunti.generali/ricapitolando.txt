@@ -1,0 +1,227 @@
+# Guida di Ripasso - Basi di Programmazione Java
+
+## Java Base
+**Argomenti fondamentali:**
+- **Variabili**: dichiarazione, inizializzazione, scope e naming convention
+- **Tipi di dato**: primitivi (int, double, boolean, char) e reference types (String)
+- **Operatori**: aritmetici (+, -, *, /, %), logici (&&, ||, !), di confronto (==, !=, <, >)
+- **Casting**: conversione implicita ed esplicita tra tipi
+
+**Interazione con l'utente:**
+- **Input**: `Scanner` per leggere da tastiera
+- **Output**: `System.out.println()` e `System.out.print()` per stampare a video
+
+---
+
+**EX - Password Generator JAVA**
+nome del repo: java-password-generator
+
+Creare un nuovo progetto java chiamato java-password-generator
+Aggiungere un package org.lessons.java.security
+Aggiungere una classe PasswordGenerator che contiene un metodo main
+
+Il programma deve fare quanto segue:
+- salvare in opportune variabili il nome, cognome, colore preferito e data di nascita di un utente suddivisa in giorno, mese e anno in numero
+- generare (e stampare a video) una password concatenando nome, cognome, colore preferito e somma di giorno, mese e anno di nascita, separate dal carattere -
+
+*Esempio: ho un utente che si chiama Pinco Pallo, nato il 12/05/1994, il cui colore preferito è il magenta
+La sua password sarà Pinco-Pallo-magenta-2011*
+
+---
+
+## Java Base 2
+**Strutture di controllo:**
+- **Istruzioni condizionali**: if/else
+- **Array**: dichiarazione, inizializzazione, accesso agli elementi, proprietà length
+- **Cicli**: for (tradizionale e foreach)
+
+---
+**EX - Festa Ferragnez**
+nome repo: java-festa-ferragnez
+
+State lavorando col servizio di sicurezza dei Ferragnez e il vostro compito è di assicurarvi che accedano alla festa solo gli invitati presenti sulla lista.
+
+**Consegna:**
+Creare un progetto java-festa-ferragnez con il package com.ferragnez.party, a cui aggiungere la classe CheckGuest
+
+Nel programma bisogna:
+- creare e inizializzare l'array contenente i nomi degli invitati
+- chiedere all'utente come si chiama
+- verificare che il nome sia presente nella lista
+- lasciarlo entrare o rispedirlo cortesemente da dove è venuto ��️
+
+**Bonus:**
+Se avete usato il ciclo for per cercare il nome nella lista, implementare lo stesso programma usando il ciclo while, e viceversa
+
+*Lista invitati:
+Dua Lipa, Paris Hilton, Manuel Agnelli, J-Ax, Francesco Totti, Ilary Blasi, Bebe Vio, Luis, Pardis Zarei, Martina Maccherone, Rachel Zeilic*
+
+---
+
+## OOP Intro
+**Concetti fondamentali:**
+- **Classi e Oggetti**: definizione, istanziamento
+- **Attributi**: variabili di istanza, visibilità (private, public, protected, default)
+- **Costruttore**: definizione, overloading del costruttore, costruttore di default
+- **Metodi**: definizione, parametri, valore di ritorno, overloading
+- **Keyword this**: riferimento all'oggetto corrente, disambiguazione parametri-attributi
+
+---
+
+## OOP - Ereditarietà, Incapsulamento, Composizione e Polimorfismo
+**Meccanismi di ereditarietà:**
+- **Keyword extends**: creazione di sottoclassi, gerarchia di classi
+- **Keyword super**: accesso a costruttori e metodi della superclasse
+- **Override**: ridefinizione di metodi nelle sottoclassi, annotation @Override
+
+**EX - Java OOP Snacks 1**
+
+**Snack 1: Studente**
+Scrivi una classe Studente con i seguenti attributi: nome, cognome, età. Implementa un costruttore che accetta tre parametri per inizializzare questi attributi. Aggiungi un metodo che restituisca una stringa concatenata dei valori (es. *Anselmo Bitta, 24 anni*).
+
+**Snack 2: Gestione di un Conto**
+Crea una classe ContoBancario con attributi per numero di conto e saldo. Implementa un costruttore che accetta il numero di conto e inizializza il saldo a zero. Aggiungi metodi pubblici per depositare denaro sul conto, prelevare denaro dal conto e ottenere il saldo corrente.
+
+**Snack 3: Registro Studenti**
+Crea una classe RegistroStudenti che rappresenti un registro di studenti. Utilizza un array privato per memorizzare oggetti Studente. Implementa un costruttore senza parametri per inizializzare il registro vuoto e un metodo pubblico per aggiungere studenti al registro. Aggiungi un metodo che stampi la lista degli studenti.
+
+---
+
+## OOP - Attributi e Metodi Statici + Final + Overload
+**Concetti avanzati:**
+- **Static**: concetto di staticità attributi e metodi statici
+- **Final**: concetto di final e applicazioni a variabili di istanza, metodi e classi
+- **Method overloading**: concetto di overloading per i metodi
+- **Variabili di classe vs variabili di istanza**: differenze e utilizzi
+- **Utility classes**: classi con solo metodi statici
+
+---
+
+**EX - Java Shop**
+repo: java-oop-shop
+
+Nel progetto java-oop-shop, package org.lessons.java.shop, creare la classe Prodotto che gestisce i prodotti dello shop.
+
+Un prodotto è caratterizzato da:
+- codice (numero intero)
+- nome
+- descrizione
+- prezzo
+- iva
+
+Usare opportunamente i livelli di accesso (public, private), i costruttori, i metodi getter e setter ed eventuali altri metodi di "utilità" per fare in modo che:
+- alla creazione di un nuovo prodotto il codice sia valorizzato con un numero random
+- il codice prodotto sia accessibile solo in lettura
+- gli altri attributi siano accessibili sia in lettura che in scrittura
+- il prodotto esponga un metodo per avere il prezzo base
+- il prodotto esponga un metodo per avere il prezzo comprensivo di iva
+- il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome
+
+Nello stesso package aggiungere una classe Main con metodo main nella quale testare tutte le funzionalità della classe Prodotto.
+
+**BONUS:** creare un metodo (statico) che restituisca il codice con un pad left di 0 per arrivare a 8 caratteri (ad esempio codice 91 diventa 00000091, mentre codice 123445567 resta come è)
+
+---
+
+## OOP - Classi Astratte e Interfacce
+**Astrazione in Java:**
+- **Classi astratte**: keyword `abstract`, metodi astratti vs concreti, definizione e utilizzi
+- **Interfacce**: definizione di interfaccia, keyword `interface`, `implements` e utilizzi
+- **Differenze**: classi astratte vs interfacce
+
+---
+
+**EX - Abstract Animals**
+nome repo: abstract-animals
+
+**Esercizio 1: classi astratte**
+Dobbiamo realizzare un programma che rappresenti il regno animale.
+
+Creare una classe astratta Animale e delle classi che la estendono: Cane, Passerotto, Aquila, Delfino
+
+Gli animali devono avere i seguenti metodi:
+- void dormi() (mostra a video "Zzz")
+- void verso() (mostra a video il verso fatto dall'animale specifico)
+- void mangia() (mostra a video quello che mangia: erba, carne, ...?)
+
+Quali di questi metodi devono essere implementati nella classe astratta e quali devono essere lasciati astratti e implementati dalle classi che la estendono?
+
+Una volta create le classi, nel programma istanziare alcuni animali e utilizzare i metodi implementati.
+
+**Esercizio 2: interfacce**
+Alcuni degli animali che abbiamo creato volano, altri nuotano.
+
+Gli animali che volano hanno il seguente metodo:
+- void vola() (mostra a video "Sto volando!!!")
+
+Gli animali che nuotano hanno il seguente metodo:
+- void nuota() (mostra a video "Sto nuotando!!!")
+
+Scrivere un programma avente 2 metodi:
+- void faiVolare(IVolante animale)
+- void faiNuotare(INuotante animale)
+
+Questi metodi prendono come parametro un animale che può volare/nuotare e richiamano il corrispondente metodo vola()/nuota().
+
+Scrivere un programma che istanzi animali che volano o nuotano e richiamare i metodi faiVolare/faiNuotare passandoglieli come parametro.
+
+---
+
+## Java Collections Framework
+- **Java Collections Framework**
+- **List**
+- **Set**
+- **Map**
+- **Differenze e utilizzi tra le varie implementazioni***
+- **Iteratori**
+- **Generics**
+- **Utility methods**
+
+---
+
+**EX - OOP Ciclabile**
+nome repo: java-ciclabile
+
+Vogliamo realizzare una classe che contenga un elenco di interi e che ci permetta di ciclarli (dal primo all'ultimo).
+
+Dovrà offrire due metodi:
+- int getElementoSuccessivo() (che restituisce il prossimo elemento rispetto all'ultima volta che è stato invocato. Cioè la prima volta restituisce il primo elemento, la seconda volta il secondo, ...)
+- boolean hasAncoraElementi() (che deve restituire true se ci sono ancora elementi da restituire)
+
+La classe deve avere un costruttore che prende come parametro un array di interi (che sarà l'elenco che viene gestito internamente)
+
+Internamente alla classe vogliamo mantenere l'elenco di interi come array, no ArrayList o simili.
+
+**Bonus:**
+Prevedere anche un costruttore che non prenda parametri e un metodo addElemento che permetta di aggiungere un nuovo intero all'elenco da ciclare.
+
+---
+
+## JAVA - Gestione degli Errori
+
+
+## Altri esercizi di logica
+
+### 1) Tabellina
+**Obiettivo:** Chiedere all'utente di quale numero stampare la tabellina e fino a quale numero arrivare.
+
+**Esempio:** numeroTabellina 5, numeroFineTabellina 10
+
+**Output:** 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
+
+### 2) Fattoriale di un numero
+**Obiettivo:** Chiedere all'utente un numero n e calcola il suo fattoriale.
+
+**Esempio:** n = 5
+
+**Output:** 5x4x3x2x1 = 120
+
+### 3) Somma degli elementi
+**Obiettivo:** Calcola la somma di tutti gli elementi di un array.
+
+**Esempio:** int [] a = {1, 2, 3, 4, 5}
+
+**Output:** 15
+
+### CodeWars
+https://boolean.notion.site/JAVA-Kata-1-fcf48a5ae146427cb09f781a0f0ba91d
