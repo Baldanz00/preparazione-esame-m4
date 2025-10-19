@@ -1,0 +1,80 @@
+## OOP - Classi Astratte e Interfacce
+**Astrazione in Java:**
+- **Classi astratte**: keyword `abstract`, metodi astratti vs concreti, definizione e utilizzi
+- **Interfacce**: definizione di interfaccia, keyword `interface`, `implements` e utilizzi
+- **Differenze**: classi astratte vs interfacce
+
+-> metodo astratto: keyword 'abstract' ed è un metodo che non ha corpo, serve solo come modello che le sottoclassi dovranno
+implementare . Si dichiara solo dentro una classe astratta o un interfaccia
+|
+V
+definisce cosa una sottoclasse deve fare
+
+abstract class Animale {
+    // Metodo astratto: nessun corpo
+    abstract void verso();
+}
+
+class Cane extends Animale {
+    @Override
+    void verso() {
+        System.out.println("Il cane abbaia");
+    }
+}
+
+class Gatto extends Animale {
+    @Override
+    void verso() {
+        System.out.println("Il gatto miagola");
+    }
+}
+Una classe concreta che eredita un metodo abstract deve per forza implementarlo, altrimenti deve essere dichiarata come 'abstract'
+
+-> metodo concreto: è un metodo con le sue implementazioni, il suo corpo
+|
+V
+definisce come fare qualcosa
+class Animale {
+    void dorme() {                    // metodo concreto
+        System.out.println("L'animale dorme"); --> comportamento definito senza che ci sia bisogno di implementazione
+    }
+}
+
+-> i due metodi a confronto:
+abstract class Animale {
+    abstract void verso(); // metodo astratto
+    void dorme() {         // metodo concreto
+        System.out.println("L'animale dorme");
+    }
+}
+
+class Cane extends Animale {
+    @Override
+    void verso() {
+        System.out.println("Il cane abbaia");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Cane c = new Cane();
+        c.verso();  // Il cane abbaia
+        c.dorme();  // L'animale dorme
+    }
+}
+
+---> classi astratte Vs. Interfacce
+|                           L----------------------> è una collezione di metodi astratti che la classe che imlementa l'interfaccia
+|                                                   deve implementare per forza.
+|                                                  |
+V                                                  L una classe può implementare diverse interfacce (ereditarietà multipla)
+in una c.a. non si possono 
+creare oggetti da essa, e può
+contenere sia metodi astatti
+che concreti.
+Serve come base comune per le classi 
+che fornisce comportamenti generici
+|
+|
+V
+una classe può estendere solo una c.a.
