@@ -5,7 +5,8 @@
     l'Oggetto = modello specifico, si istanzia con il new :  Auto miaAuto = new Auto ();-> nuovo oggetto miaAuto nella classe Auto.
     -> istanziamento                                                            L new Auto() è un richiamo al costruttore della classe per creare la nuova istanza
 
-- **Attributi**: variabili di istanza, visibilità (private, public, protected, default)
+- **Attributi**: variabili di istanza-> si riferiscono agli attributi del singolo oggetto e no di tutta la classe,
+ visibilità (private, public, protected, default)
 public: visibili ovunque;
 private: visibili da nessuna parte se non ci sono i metodi di accesso Getter e setter
 protected: molto simile al defoult, ossia ha visibilità nella classe e nel package purchè chi utilizza quell'attributo sia dentro un package ed estenda la classe che ha quell'attributo
@@ -25,3 +26,60 @@ defoult: visibile solo nella classe e nel package
     che vengono passati.
 
 - **Keyword this**: riferimento all'oggetto corrente, disambiguazione parametri-attributi
+
+----------------------------------------------------------------------------------------------------------------------
+## OOP - Ereditarietà, Incapsulamento, Composizione e Polimorfismo
+**Meccanismi di ereditarietà:**
+-> EREDITARIETA': possibilità di una sottoclasse di ereditare attributi e metodi di una superclasse, dichiarando di 
+derivare da questa con la keyword 'extends'. Non posso rimpere l'ereditarietà, ma posso impedirla attraverso una keyword
+'final' attribuita alla classe. 
+
+-> INCAPSULAMENTO: possibilità di incapsulare/nascondere lo stato interno di una classe (valore degli attributi) rendendoli
+private, e permettere l'accesso a questi dati attraverso metodi controllati quali Getter ( lettura) e Setter (scrittura). 
+L'utilizzo di questi metodi richiede però molta attenzione perchè se non fatti con determinati controlli,qualora siano richiesti, potrebberò rompere
+l'incapsulamento.
+
+-> POLIMORFISMO: è il principio che permette ad una interfaccia di assumere forme diverse a seconda dell'oggetto conreto su cui viene usata.
+---> è la capacità di un oggetto di comportarsi in modi diversi a seconda del tipo reale pur condividendo la stessa interfaccia
+Permette cioè l'utilizzo dello stesso metodo per oggetti di tipi diversi per fas sì che ogni oggetto risponda in modo specifico.
+Ci sono due tipi di polimorfismo:
+1. @overloading -> polimorfismo di compilazione
+che permette di avere più metodi con lo stesso nome ma con un implementazione diversa, ossia variano tra loro per tipo, ordine o numero di 
+parametri richiesti
+2.@overriding -> polimorfismo di esecuzione
+Avviene quando una classe figlia eredita un metodo della superclasse ma ne ridefinisce il comportamento fornendo una sua implementazione
+
+-->Relazione polimorfismo-ereditarietà:
+L'eredità permette ad una classe figlia di ereditare attributi e metodi della classe padre. Il polimorfismo entra in gioco quando la classe padre 
+può puntare a oggetti di classi figlie diverse:
+public class Animale{.                                      ----> main
+    void faiVerso{                                             Animale a1 = new Gatto();
+        Sysout("Fa un verso");                                 Animale a2 = new Cane();
+    }                                                          a1.faiVerso(); //miao
+}                                                              a2.faiVerso(); //bau
+
+public class Gatto extends Animale{
+    void faiVerso{
+        sysout("miao");
+    }
+}
+
+public class Cane extends Animale{
+    void faiVerso{
+        Sysout("bau");
+    }
+}
+- **Keyword extends**: creazione di sottoclassi, gerarchia di classi
+- **Keyword super**: accesso a costruttori e metodi della superclasse
+- **Override**: ridefinizione di metodi nelle sottoclassi, annotation @Override
+
+**EX - Java OOP Snacks 1**
+
+**Snack 1: Studente**
+Scrivi una classe Studente con i seguenti attributi: nome, cognome, età. Implementa un costruttore che accetta tre parametri per inizializzare questi attributi. Aggiungi un metodo che restituisca una stringa concatenata dei valori (es. *Anselmo Bitta, 24 anni*).
+
+**Snack 2: Gestione di un Conto**
+Crea una classe ContoBancario con attributi per numero di conto e saldo. Implementa un costruttore che accetta il numero di conto e inizializza il saldo a zero. Aggiungi metodi pubblici per depositare denaro sul conto, prelevare denaro dal conto e ottenere il saldo corrente.
+
+**Snack 3: Registro Studenti**
+Crea una classe RegistroStudenti che rappresenti un registro di studenti. Utilizza un array privato per memorizzare oggetti Studente. Implementa un costruttore senza parametri per inizializzare il registro vuoto e un metodo pubblico per aggiungere studenti al registro. Aggiungi un metodo che stampi la lista degli studenti.

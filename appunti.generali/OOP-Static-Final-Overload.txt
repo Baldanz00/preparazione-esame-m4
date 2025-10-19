@@ -1,0 +1,117 @@
+
+## OOP - Attributi e Metodi Statici + Final + Overload
+**Concetti avanzati:**
+- **Static**: concetto di staticità attributi e metodi statici
+- **Final**: concetto di final e applicazioni a variabili di istanza, metodi e classi
+- **Method overloading**: concetto di overloading per i metodi
+- **Variabili di classe vs variabili di istanza**: differenze e utilizzi
+- **Utility classes**: classi con solo metodi statici --> è una classe senza istanze ma solo con metodi statici e costanti:
+in queste classi il costruttore è private per evitare che venga creata una istanza
+public class MathUtils {
+
+    // Costruttore privato per evitare istanziazione
+    private MathUtils() {}
+
+    // Metodi statici di utilità
+    public static int quadrato(int n) {
+        return n * n;
+    }
+
+    public static int massimo(int a, int b) {
+        return (a > b) ? a : b;
+    }
+
+    public static double media(double a, double b) {
+        return (a + b) / 2;
+    }
+}
+-> utilizzo nel main
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(MathUtils.quadrato(5));  // 25
+        System.out.println(MathUtils.massimo(3, 8)); // 8
+        System.out.println(MathUtils.media(4, 6));   // 5.0
+    }
+}
+
+
+-> STATIC: di quell'attributo c'è solamente una copia in tutto il programma. Sono attributi della classe e no della singola istanza
+I Metodi dichiarati static sono metodi di tutta la classe. Non serve scrivere la keyword 'new' quando lo richiamiamo perchè 
+non è legato ad un oggetto
+|
+V
+Metodo statico:
+class Calcolatrice {
+    static int somma(int a, int b) {
+        return a + b;
+    }
+}
+
+Utilizzo nel main:
+public class Test {
+    public static void main(String[] args) {
+        int risultato = Calcolatrice.somma(5, 3); --> non c'è bisogno del new, non serve un istanza per richiamarlo.
+        System.out.println(risultato); // Output: 8
+    }
+}
+
+-> FINAL: dichiarando un attributo final stiamo dicendo che il suo valore non è modificabile, di fatto diventa una costante
+    L impedisce l'ereditarietà quando: 
+    un metodo dichiarato final, non può essere sovrascritto, cioè può essere usato ma non implementato diversamente.
+    Se una classe secondaria eredita il metodo final void faiVerso() lo può utilizzare ma non può fornire implementazione.
+    |
+    L no override
+
+-> OVERLOAD DEI METODI: nella stessa classe ho metodi che hanno lo stesso nome, lo stesso comportamento, ma hanno una implementazione diversa
+
+---> variabili di istanza: 
+Sono dichiarate all'interno della classe ma fuori da ogni metodo e senza la keyword 'static'.
+Significa che ogni oggetto avrà la sua copia di quelle variabili che sono specifiche per ogni istanza
+
+class Studente {
+    String nome;   // variabile di istanza
+    int eta;       // variabile di istanza
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Studente s1 = new Studente();
+        Studente s2 = new Studente();
+
+        s1.nome = "Marco";
+        s2.nome = "Lucia";
+
+        System.out.println(s1.nome); // Marco
+        System.out.println(s2.nome); // Lucia
+    }
+}
+
+Ogni oggetto s1 e s2 ha la sua copia delle variabili.
+
+---> variabili di classe:
+Sono definite con la keyword 'static' e in tutto il programma, c'è solo una copia di quelle variabili
+condivisa tra tutti gli oggetti della classe. 
+
+class Studente {
+    String nome;
+    static String scuola = "Liceo Rossi"; // variabile di classe
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Studente s1 = new Studente();
+        Studente s2 = new Studente();
+
+        s1.nome = "Marco";
+        s2.nome = "Lucia";
+
+        System.out.println(s1.scuola); // Liceo Rossi
+        System.out.println(s2.scuola); // Liceo Rossi
+
+        // Cambiamo il valore tramite la classe
+        Studente.scuola = "Liceo Verdi";
+
+        System.out.println(s1.scuola); // Liceo Verdi
+        System.out.println(s2.scuola); // Liceo Verdi
+    }
+}
